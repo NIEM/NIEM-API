@@ -1,0 +1,2318 @@
+{
+  "Model": {
+    "xmlns:structures": "http://release.niem.gov/niem/structures/5.0/",
+    "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+    "xmlns": "http://reference.niem.gov/specification/cmf/0.3/",
+    "Namespace": [
+      {
+        "structures:uri": "aamva_d20",
+        "NamespaceURI": "http://release.niem.gov/niem/codes/aamva_d20/5.0/",
+        "NamespacePrefixName": "aamva_d20",
+        "DefinitionText": "Motor vehicle administration codes from the Data Dictionary for Traffic Record Systems, maintained by AAMVA, the American Association of Motor Vehicle Administrators."
+      },
+      {
+        "structures:uri": "exch",
+        "NamespaceURI": "http://example.com/CrashDriver/1.1/",
+        "NamespacePrefixName": "exch",
+        "DefinitionText": "This is the extension schema for an example IEPD used to illustrate guidance \n            for representing an IEP in JSON-LD syntax."
+      },
+      {
+        "structures:uri": "hs",
+        "NamespaceURI": "http://release.niem.gov/niem/domains/humanServices/5.0/",
+        "NamespacePrefixName": "hs",
+        "DefinitionText": "Human Services"
+      },
+      {
+        "structures:uri": "j",
+        "NamespaceURI": "http://release.niem.gov/niem/domains/jxdm/7.0/",
+        "NamespacePrefixName": "j",
+        "DefinitionText": "Justice"
+      },
+      {
+        "structures:uri": "nc",
+        "NamespaceURI": "http://release.niem.gov/niem/niem-core/5.0/",
+        "NamespacePrefixName": "nc",
+        "DefinitionText": "NIEM Core."
+      },
+      {
+        "structures:uri": "priv",
+        "NamespaceURI": "http://example.com/PrivacyMetadata/2.0/",
+        "NamespacePrefixName": "priv",
+        "DefinitionText": "An example of what might be in a privacy metadata namespace"
+      },
+      {
+        "structures:uri": "unece",
+        "NamespaceURI": "http://release.niem.gov/niem/codes/unece_rec20/5.0/",
+        "NamespacePrefixName": "unece",
+        "DefinitionText": "United Nations Economic Commission for Europe (UNECE), United Nations Centre for Trade Facilitation and Electronic Business (UN/CEFACT) measure codes"
+      },
+      {
+        "structures:uri": "xs",
+        "NamespaceURI": "http://www.w3.org/2001/XMLSchema",
+        "NamespacePrefixName": "xs"
+      }
+    ],
+    "Property": [
+      {
+        "structures:uri": "exch:CrashDriverInfo",
+        "Name": "CrashDriverInfo",
+        "Namespace": {
+          "structures:uri": "exch",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A collection of legal charges associated with the driver of a vehicle in a crash.",
+        "Class": {
+          "structures:uri": "exch:CrashDriverInfoType",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "exch:LicenseAugmentation",
+        "Name": "LicenseAugmentation",
+        "Namespace": {
+          "structures:uri": "exch",
+          "xsi:nil": true
+        },
+        "DefinitionText": "Additional information about a license.",
+        "SubPropertyOf": {
+          "structures:uri": "j:DriverLicenseAugmentationPoint",
+          "xsi:nil": true
+        },
+        "Class": {
+          "structures:uri": "exch:LicenseAugmentationType",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "exch:PersonFictionalCharacterIndicator",
+        "Name": "PersonFictionalCharacterIndicator",
+        "Namespace": {
+          "structures:uri": "exch",
+          "xsi:nil": true
+        },
+        "DefinitionText": "True if this person is a fictional character in a literary work; false otherwise.",
+        "SubPropertyOf": {
+          "structures:uri": "nc:PersonAugmentationPoint",
+          "xsi:nil": true
+        },
+        "Datatype": {
+          "structures:uri": "xs:boolean",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "hs:Child",
+        "Name": "Child",
+        "Namespace": {
+          "structures:uri": "hs",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A person who was an unmarried minor at the time of his or her involvement in a judicial proceeding or non-judicial program.",
+        "Class": {
+          "structures:uri": "hs:ChildType",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "hs:Parent",
+        "Name": "Parent",
+        "Namespace": {
+          "structures:uri": "hs",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A father or mother of a person.",
+        "Class": {
+          "structures:uri": "nc:PersonType",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "hs:ParentChildAssociation",
+        "Name": "ParentChildAssociation",
+        "Namespace": {
+          "structures:uri": "hs",
+          "xsi:nil": true
+        },
+        "DefinitionText": "An association between a child and a person who is in a parent role toward that child.",
+        "Class": {
+          "structures:uri": "hs:ParentChildAssociationType",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "hs:PersonOtherKinAssociation",
+        "Name": "PersonOtherKinAssociation",
+        "Namespace": {
+          "structures:uri": "hs",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A directed association that describes the kinship or other close personal relationship between the source object and the target object. The relationship between a parent and a child should be captured using the ParentChildAssociation",
+        "Class": {
+          "structures:uri": "hs:PersonOtherKinAssociationType",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "hs:PersonOtherKinAssociationCategoryAbstract",
+        "Name": "PersonOtherKinAssociationCategoryAbstract",
+        "Namespace": {
+          "structures:uri": "hs",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A data concept for describing the kinship or other close personal relationship that exists from the source person to the target person.",
+        "AbstractIndicator": true
+      },
+      {
+        "structures:uri": "hs:PersonOtherKinAssociationCategoryCode",
+        "Name": "PersonOtherKinAssociationCategoryCode",
+        "Namespace": {
+          "structures:uri": "hs",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A code list that describes the nature of the kinship or other close personal relationship from a source person to a target person.",
+        "SubPropertyOf": {
+          "structures:uri": "hs:PersonOtherKinAssociationCategoryAbstract",
+          "xsi:nil": true
+        },
+        "Datatype": {
+          "structures:uri": "hs:PersonOtherKinAssociationCodeType",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "j:Charge",
+        "Name": "Charge",
+        "Namespace": {
+          "structures:uri": "j",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A formal allegation that a specific person has committed a specific offense.",
+        "Class": {
+          "structures:uri": "j:ChargeType",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "j:ChargeDescriptionText",
+        "Name": "ChargeDescriptionText",
+        "Namespace": {
+          "structures:uri": "j",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A plain language description of a charge.",
+        "Datatype": {
+          "structures:uri": "nc:TextType",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "j:ChargeFelonyIndicator",
+        "Name": "ChargeFelonyIndicator",
+        "Namespace": {
+          "structures:uri": "j",
+          "xsi:nil": true
+        },
+        "DefinitionText": "True if a charge refers to a felony offense; false otherwise.",
+        "Datatype": {
+          "structures:uri": "xs:boolean",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "j:Crash",
+        "Name": "Crash",
+        "Namespace": {
+          "structures:uri": "j",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A traffic accident.",
+        "Class": {
+          "structures:uri": "j:CrashType",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "j:CrashDriver",
+        "Name": "CrashDriver",
+        "Namespace": {
+          "structures:uri": "j",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A motor vehicle driver involved into a traffic accident.",
+        "Class": {
+          "structures:uri": "j:CrashDriverType",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "j:CrashPerson",
+        "Name": "CrashPerson",
+        "Namespace": {
+          "structures:uri": "j",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A person involved in a traffic accident.",
+        "Class": {
+          "structures:uri": "j:CrashPersonType",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "j:CrashPersonInjury",
+        "Name": "CrashPersonInjury",
+        "Namespace": {
+          "structures:uri": "j",
+          "xsi:nil": true
+        },
+        "DefinitionText": "An injury received by a person involved in a traffic accident.",
+        "Class": {
+          "structures:uri": "nc:InjuryType",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "j:CrashVehicle",
+        "Name": "CrashVehicle",
+        "Namespace": {
+          "structures:uri": "j",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A motor vehicle involved in a traffic accident.",
+        "Class": {
+          "structures:uri": "j:CrashVehicleType",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "j:CriminalInformationIndicator",
+        "Name": "CriminalInformationIndicator",
+        "Namespace": {
+          "structures:uri": "j",
+          "xsi:nil": true
+        },
+        "DefinitionText": "True if the information specified is classified as criminal information; false if it is not classified as criminal information.",
+        "Datatype": {
+          "structures:uri": "xs:boolean",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "j:DriverLicense",
+        "Name": "DriverLicense",
+        "Namespace": {
+          "structures:uri": "j",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A license issued to a person granting driving privileges.",
+        "Class": {
+          "structures:uri": "j:DriverLicenseType",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "j:DriverLicenseAugmentationPoint",
+        "Name": "DriverLicenseAugmentationPoint",
+        "Namespace": {
+          "structures:uri": "j",
+          "xsi:nil": true
+        },
+        "DefinitionText": "An augmentation point for DriverLicenseType.",
+        "AbstractIndicator": true
+      },
+      {
+        "structures:uri": "j:DriverLicenseCardIdentification",
+        "Name": "DriverLicenseCardIdentification",
+        "Namespace": {
+          "structures:uri": "j",
+          "xsi:nil": true
+        },
+        "DefinitionText": "An identification that is affixed to the raw materials (card stock, laminate, etc.) used in producing driver licenses and ID cards. The numbers are issued by the material's manufacturer and provide a unique reference to a card within a jurisdiction.",
+        "Class": {
+          "structures:uri": "nc:IdentificationType",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "j:InjurySeverityCode",
+        "Name": "InjurySeverityCode",
+        "Namespace": {
+          "structures:uri": "j",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A severity of an injury received by a person, such as in a traffic accident or crash.",
+        "SubPropertyOf": {
+          "structures:uri": "nc:InjurySeverityAbstract",
+          "xsi:nil": true
+        },
+        "Datatype": {
+          "structures:uri": "aamva_d20:AccidentSeverityCodeType",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "j:JuvenileAsAdultIndicator",
+        "Name": "JuvenileAsAdultIndicator",
+        "Namespace": {
+          "structures:uri": "j",
+          "xsi:nil": true
+        },
+        "DefinitionText": "True if a juvenile is to be processed as an adult; false otherwise.",
+        "Datatype": {
+          "structures:uri": "xs:boolean",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "j:Metadata",
+        "Name": "Metadata",
+        "Namespace": {
+          "structures:uri": "j",
+          "xsi:nil": true
+        },
+        "DefinitionText": "Information that further qualifies the kind of data represented.",
+        "Class": {
+          "structures:uri": "j:MetadataType",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "j:PersonChargeAssociation",
+        "Name": "PersonChargeAssociation",
+        "Namespace": {
+          "structures:uri": "j",
+          "xsi:nil": true
+        },
+        "DefinitionText": "An association between a person and a charge issued to that person.",
+        "Class": {
+          "structures:uri": "j:PersonChargeAssociationType",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "j:PersonChargeAssociationAugmentationPoint",
+        "Name": "PersonChargeAssociationAugmentationPoint",
+        "Namespace": {
+          "structures:uri": "j",
+          "xsi:nil": true
+        },
+        "DefinitionText": "An augmentation point for PersonChargeAssociationType.",
+        "AbstractIndicator": true
+      },
+      {
+        "structures:uri": "nc:ActivityDate",
+        "Name": "ActivityDate",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A date of an activity.",
+        "Class": {
+          "structures:uri": "nc:DateType",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "nc:ActivityLocation",
+        "Name": "ActivityLocation",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A location of an activity.",
+        "Class": {
+          "structures:uri": "nc:LocationType",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "nc:Date",
+        "Name": "Date",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A full date.",
+        "SubPropertyOf": {
+          "structures:uri": "nc:DateRepresentation",
+          "xsi:nil": true
+        },
+        "Datatype": {
+          "structures:uri": "xs:date",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "nc:DateRepresentation",
+        "Name": "DateRepresentation",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A data concept for a representation of a date.",
+        "AbstractIndicator": true
+      },
+      {
+        "structures:uri": "nc:GeographicCoordinateLatitude",
+        "Name": "GeographicCoordinateLatitude",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A measurement of the angular distance between a point on the Earth and the Equator.",
+        "Class": {
+          "structures:uri": "nc:LatitudeCoordinateType",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "nc:GeographicCoordinateLongitude",
+        "Name": "GeographicCoordinateLongitude",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A measurement of the angular distance between a point on the Earth and the Prime Meridian.",
+        "Class": {
+          "structures:uri": "nc:LongitudeCoordinateType",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "nc:IdentificationID",
+        "Name": "IdentificationID",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "An identifier.",
+        "Datatype": {
+          "structures:uri": "xs:string",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "nc:InjuryDescriptionText",
+        "Name": "InjuryDescriptionText",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A description of an injury.",
+        "Datatype": {
+          "structures:uri": "nc:TextType",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "nc:InjurySeverityAbstract",
+        "Name": "InjurySeverityAbstract",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A data concept for a severity of an injury received by a person involved into a Traffic Accident.",
+        "AbstractIndicator": true
+      },
+      {
+        "structures:uri": "nc:ItemLengthMeasure",
+        "Name": "ItemLengthMeasure",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A measurement of the length of an item.",
+        "Class": {
+          "structures:uri": "nc:LengthMeasureType",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "nc:LatitudeDegreeValue",
+        "Name": "LatitudeDegreeValue",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A value that specifies the degree of a latitude. The value comes from a restricted range between -90 (inclusive) and +90 (inclusive).",
+        "Datatype": {
+          "structures:uri": "nc:LatitudeDegreeType",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "nc:LengthUnitAbstract",
+        "Name": "LengthUnitAbstract",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A data concept for a unit of measure for length.",
+        "AbstractIndicator": true
+      },
+      {
+        "structures:uri": "nc:Location2DGeospatialCoordinate",
+        "Name": "Location2DGeospatialCoordinate",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A location identified by a latitude and longitude.",
+        "SubPropertyOf": {
+          "structures:uri": "nc:LocationGeospatialCoordinateAbstract",
+          "xsi:nil": true
+        },
+        "Class": {
+          "structures:uri": "nc:Location2DGeospatialCoordinateType",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "nc:LocationGeospatialCoordinateAbstract",
+        "Name": "LocationGeospatialCoordinateAbstract",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A data concept for a geospatial location.",
+        "AbstractIndicator": true
+      },
+      {
+        "structures:uri": "nc:LongitudeDegreeValue",
+        "Name": "LongitudeDegreeValue",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A value that specifies the degree of a longitude. The value comes from a restricted range between -180 (inclusive) and +180 (inclusive).",
+        "Datatype": {
+          "structures:uri": "nc:LongitudeDegreeType",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "nc:MeasureDecimalValue",
+        "Name": "MeasureDecimalValue",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A decimal measurement value.",
+        "SubPropertyOf": {
+          "structures:uri": "nc:MeasurePointAbstract",
+          "xsi:nil": true
+        },
+        "Datatype": {
+          "structures:uri": "xs:decimal",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "nc:MeasurePointAbstract",
+        "Name": "MeasurePointAbstract",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A data concept for a measurement value.",
+        "AbstractIndicator": true,
+        "SubPropertyOf": {
+          "structures:uri": "nc:MeasureValueAbstract",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "nc:MeasureValueAbstract",
+        "Name": "MeasureValueAbstract",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A data concept for a measurement value.",
+        "AbstractIndicator": true
+      },
+      {
+        "structures:uri": "nc:MeasureValueText",
+        "Name": "MeasureValueText",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A textual description of a measurement value.",
+        "SubPropertyOf": {
+          "structures:uri": "nc:MeasureValueAbstract",
+          "xsi:nil": true
+        },
+        "Datatype": {
+          "structures:uri": "nc:TextType",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "nc:Metadata",
+        "Name": "Metadata",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "Information that further qualifies primary data; data about data.",
+        "Class": {
+          "structures:uri": "nc:MetadataType",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "nc:Person",
+        "Name": "Person",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A human being.",
+        "Class": {
+          "structures:uri": "nc:PersonType",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "nc:PersonAugmentationPoint",
+        "Name": "PersonAugmentationPoint",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "An augmentation point for PersonType.",
+        "AbstractIndicator": true
+      },
+      {
+        "structures:uri": "nc:PersonBirthDate",
+        "Name": "PersonBirthDate",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A date a person was born.",
+        "Class": {
+          "structures:uri": "nc:DateType",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "nc:PersonGivenName",
+        "Name": "PersonGivenName",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A first name of a person.",
+        "Datatype": {
+          "structures:uri": "nc:PersonNameTextType",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "nc:PersonMiddleName",
+        "Name": "PersonMiddleName",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A middle name of a person.",
+        "Datatype": {
+          "structures:uri": "nc:PersonNameTextType",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "nc:PersonName",
+        "Name": "PersonName",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A combination of names and/or titles by which a person is known.",
+        "Class": {
+          "structures:uri": "nc:PersonNameType",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "nc:PersonSurName",
+        "Name": "PersonSurName",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A last name or family name of a person.",
+        "Datatype": {
+          "structures:uri": "nc:PersonNameTextType",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "nc:PersonUnionAssociation",
+        "Name": "PersonUnionAssociation",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "An association between two persons who are in a state of union with each other.",
+        "Class": {
+          "structures:uri": "nc:PersonUnionAssociationType",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "nc:ReportedDate",
+        "Name": "ReportedDate",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A date information was observed, measured, identified, or became known.",
+        "Class": {
+          "structures:uri": "nc:DateType",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "nc:RoleOfAbstract",
+        "Name": "RoleOfAbstract",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A data concept for a property of a role object. This specifies the base object, of which the role object is a function.",
+        "AbstractIndicator": true
+      },
+      {
+        "structures:uri": "nc:RoleOfPerson",
+        "Name": "RoleOfPerson",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A person of whom the role object is a function.",
+        "SubPropertyOf": {
+          "structures:uri": "nc:RoleOfAbstract",
+          "xsi:nil": true
+        },
+        "Class": {
+          "structures:uri": "nc:PersonType",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "nc:personNameCommentText",
+        "Name": "personNameCommentText",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A comment about a kind of name for a person.",
+        "Datatype": {
+          "structures:uri": "xs:string",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "priv:PrivacyCode",
+        "Name": "PrivacyCode",
+        "Namespace": {
+          "structures:uri": "priv",
+          "xsi:nil": true
+        },
+        "Datatype": {
+          "structures:uri": "priv:PrivacyCodeType",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "priv:PrivacyMetadata",
+        "Name": "PrivacyMetadata",
+        "Namespace": {
+          "structures:uri": "priv",
+          "xsi:nil": true
+        },
+        "Class": {
+          "structures:uri": "priv:PrivacyMetadataType",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "unece:LengthUnitCode",
+        "Name": "LengthUnitCode",
+        "Namespace": {
+          "structures:uri": "unece",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A unit of measure of a length value.",
+        "SubPropertyOf": {
+          "structures:uri": "nc:LengthUnitAbstract",
+          "xsi:nil": true
+        },
+        "Datatype": {
+          "structures:uri": "unece:LengthCodeType",
+          "xsi:nil": true
+        }
+      }
+    ],
+    "Class": [
+      {
+        "structures:uri": "exch:CrashDriverInfoType",
+        "Name": "CrashDriverInfoType",
+        "Namespace": {
+          "structures:uri": "exch",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A data type for a collection of legal charges associated with the driver of a \n            vehicle in a crash.",
+        "HasProperty": [
+          {
+            "structures:sequenceID": 1,
+            "Property": {
+              "structures:uri": "j:Crash",
+              "xsi:nil": true
+            },
+            "MinOccursQuantity": 1,
+            "MaxOccursQuantity": 1
+          },
+          {
+            "structures:sequenceID": 2,
+            "Property": {
+              "structures:uri": "j:Charge",
+              "xsi:nil": true
+            },
+            "MinOccursQuantity": 0,
+            "MaxOccursQuantity": "unbounded"
+          },
+          {
+            "structures:sequenceID": 3,
+            "Property": {
+              "structures:uri": "j:PersonChargeAssociation",
+              "xsi:nil": true
+            },
+            "MinOccursQuantity": 0,
+            "MaxOccursQuantity": "unbounded"
+          },
+          {
+            "structures:sequenceID": 4,
+            "Property": {
+              "structures:uri": "nc:PersonUnionAssociation",
+              "xsi:nil": true
+            },
+            "MinOccursQuantity": 0,
+            "MaxOccursQuantity": "unbounded"
+          },
+          {
+            "structures:sequenceID": 5,
+            "Property": {
+              "structures:uri": "hs:ParentChildAssociation",
+              "xsi:nil": true
+            },
+            "MinOccursQuantity": 0,
+            "MaxOccursQuantity": "unbounded"
+          },
+          {
+            "structures:sequenceID": 6,
+            "Property": {
+              "structures:uri": "hs:PersonOtherKinAssociation",
+              "xsi:nil": true
+            },
+            "MinOccursQuantity": 0,
+            "MaxOccursQuantity": "unbounded"
+          },
+          {
+            "structures:sequenceID": 7,
+            "Property": {
+              "structures:uri": "nc:Metadata",
+              "xsi:nil": true
+            },
+            "MinOccursQuantity": 0,
+            "MaxOccursQuantity": "unbounded"
+          },
+          {
+            "structures:sequenceID": 8,
+            "Property": {
+              "structures:uri": "j:Metadata",
+              "xsi:nil": true
+            },
+            "MinOccursQuantity": 0,
+            "MaxOccursQuantity": "unbounded"
+          },
+          {
+            "structures:sequenceID": 9,
+            "Property": {
+              "structures:uri": "priv:PrivacyMetadata",
+              "xsi:nil": true
+            },
+            "MinOccursQuantity": 0,
+            "MaxOccursQuantity": "unbounded"
+          }
+        ]
+      },
+      {
+        "structures:uri": "exch:LicenseAugmentationType",
+        "Name": "LicenseAugmentationType",
+        "Namespace": {
+          "structures:uri": "exch",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A data type for additional information about a license.",
+        "HasProperty": {
+          "structures:sequenceID": 1,
+          "Property": {
+            "structures:uri": "nc:ItemLengthMeasure",
+            "xsi:nil": true
+          },
+          "MinOccursQuantity": 1,
+          "MaxOccursQuantity": 1
+        }
+      },
+      {
+        "structures:uri": "hs:ChildType",
+        "Name": "ChildType",
+        "Namespace": {
+          "structures:uri": "hs",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A data type for information about a person who has not yet reached the age of legal majority (i.e., adulthood)."
+      },
+      {
+        "structures:uri": "hs:ParentChildAssociationType",
+        "Name": "ParentChildAssociationType",
+        "Namespace": {
+          "structures:uri": "hs",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A data type for an association between a child and a person who is in a parent role toward that child.",
+        "ExtensionOfClass": {
+          "structures:uri": "nc:AssociationType",
+          "xsi:nil": true
+        },
+        "HasProperty": [
+          {
+            "structures:sequenceID": 1,
+            "Property": {
+              "structures:uri": "hs:Child",
+              "xsi:nil": true
+            },
+            "MinOccursQuantity": 0,
+            "MaxOccursQuantity": "unbounded"
+          },
+          {
+            "structures:sequenceID": 2,
+            "Property": {
+              "structures:uri": "hs:Parent",
+              "xsi:nil": true
+            },
+            "MinOccursQuantity": 0,
+            "MaxOccursQuantity": "unbounded"
+          }
+        ]
+      },
+      {
+        "structures:uri": "hs:PersonOtherKinAssociationType",
+        "Name": "PersonOtherKinAssociationType",
+        "Namespace": {
+          "structures:uri": "hs",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A data type for a relationship that is a kinship or other close personal association between the source object and the target object. The relationship between a parent and a child should be captured using the ParentChildAssociation",
+        "ExtensionOfClass": {
+          "structures:uri": "nc:AssociationType",
+          "xsi:nil": true
+        },
+        "HasProperty": {
+          "structures:sequenceID": 1,
+          "Property": {
+            "structures:uri": "hs:PersonOtherKinAssociationCategoryAbstract",
+            "xsi:nil": true
+          },
+          "MinOccursQuantity": 0,
+          "MaxOccursQuantity": "unbounded"
+        }
+      },
+      {
+        "structures:uri": "j:ChargeType",
+        "Name": "ChargeType",
+        "Namespace": {
+          "structures:uri": "j",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A data type for a formal allegation that a specific person has committed a specific offense.",
+        "HasProperty": [
+          {
+            "structures:sequenceID": 1,
+            "Property": {
+              "structures:uri": "j:ChargeDescriptionText",
+              "xsi:nil": true
+            },
+            "MinOccursQuantity": 0,
+            "MaxOccursQuantity": "unbounded"
+          },
+          {
+            "structures:sequenceID": 2,
+            "Property": {
+              "structures:uri": "j:ChargeFelonyIndicator",
+              "xsi:nil": true
+            },
+            "MinOccursQuantity": 0,
+            "MaxOccursQuantity": "unbounded"
+          }
+        ]
+      },
+      {
+        "structures:uri": "j:CrashDriverType",
+        "Name": "CrashDriverType",
+        "Namespace": {
+          "structures:uri": "j",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A data type for a motor vehicle driver involved in a traffic accident.",
+        "HasProperty": [
+          {
+            "structures:sequenceID": 1,
+            "Property": {
+              "structures:uri": "nc:RoleOfPerson",
+              "xsi:nil": true
+            },
+            "MinOccursQuantity": 1,
+            "MaxOccursQuantity": 1
+          },
+          {
+            "structures:sequenceID": 2,
+            "Property": {
+              "structures:uri": "j:DriverLicense",
+              "xsi:nil": true
+            },
+            "MinOccursQuantity": 0,
+            "MaxOccursQuantity": "unbounded"
+          }
+        ]
+      },
+      {
+        "structures:uri": "j:CrashPersonType",
+        "Name": "CrashPersonType",
+        "Namespace": {
+          "structures:uri": "j",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A data type for any person involved in a traffic accident.",
+        "HasProperty": [
+          {
+            "structures:sequenceID": 1,
+            "Property": {
+              "structures:uri": "nc:RoleOfPerson",
+              "xsi:nil": true
+            },
+            "MinOccursQuantity": 0,
+            "MaxOccursQuantity": "unbounded"
+          },
+          {
+            "structures:sequenceID": 2,
+            "Property": {
+              "structures:uri": "j:CrashPersonInjury",
+              "xsi:nil": true
+            },
+            "MinOccursQuantity": 0,
+            "MaxOccursQuantity": "unbounded"
+          }
+        ]
+      },
+      {
+        "structures:uri": "j:CrashType",
+        "Name": "CrashType",
+        "Namespace": {
+          "structures:uri": "j",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A data type for a traffic accident.",
+        "ExtensionOfClass": {
+          "structures:uri": "j:DrivingIncidentType",
+          "xsi:nil": true
+        },
+        "HasProperty": [
+          {
+            "structures:sequenceID": 1,
+            "Property": {
+              "structures:uri": "j:CrashVehicle",
+              "xsi:nil": true
+            },
+            "MinOccursQuantity": 0,
+            "MaxOccursQuantity": "unbounded"
+          },
+          {
+            "structures:sequenceID": 2,
+            "Property": {
+              "structures:uri": "j:CrashPerson",
+              "xsi:nil": true
+            },
+            "MinOccursQuantity": 0,
+            "MaxOccursQuantity": "unbounded"
+          }
+        ]
+      },
+      {
+        "structures:uri": "j:CrashVehicleType",
+        "Name": "CrashVehicleType",
+        "Namespace": {
+          "structures:uri": "j",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A data type for a motor vehicle involved in a traffic accident.",
+        "HasProperty": {
+          "structures:sequenceID": 1,
+          "Property": {
+            "structures:uri": "j:CrashDriver",
+            "xsi:nil": true
+          },
+          "MinOccursQuantity": 0,
+          "MaxOccursQuantity": "unbounded"
+        }
+      },
+      {
+        "structures:uri": "j:DriverLicenseBaseType",
+        "Name": "DriverLicenseBaseType",
+        "Namespace": {
+          "structures:uri": "j",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A data type for an authorization issued to a driver granting driving privileges."
+      },
+      {
+        "structures:uri": "j:DriverLicenseType",
+        "Name": "DriverLicenseType",
+        "Namespace": {
+          "structures:uri": "j",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A data type for a license issued to a person granting driving privileges.",
+        "ExtensionOfClass": {
+          "structures:uri": "j:DriverLicenseBaseType",
+          "xsi:nil": true
+        },
+        "HasProperty": [
+          {
+            "structures:sequenceID": 1,
+            "Property": {
+              "structures:uri": "j:DriverLicenseCardIdentification",
+              "xsi:nil": true
+            },
+            "MinOccursQuantity": 0,
+            "MaxOccursQuantity": "unbounded"
+          },
+          {
+            "structures:sequenceID": 2,
+            "Property": {
+              "structures:uri": "j:DriverLicenseAugmentationPoint",
+              "xsi:nil": true
+            },
+            "MinOccursQuantity": 0,
+            "MaxOccursQuantity": "unbounded"
+          }
+        ]
+      },
+      {
+        "structures:uri": "j:DrivingIncidentType",
+        "Name": "DrivingIncidentType",
+        "Namespace": {
+          "structures:uri": "j",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A data type for details of an incident involving a vehicle.",
+        "ExtensionOfClass": {
+          "structures:uri": "nc:IncidentType",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "j:MetadataType",
+        "Name": "MetadataType",
+        "Namespace": {
+          "structures:uri": "j",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A data type for information that further qualifies the kind of data represented.",
+        "HasProperty": {
+          "structures:sequenceID": 1,
+          "Property": {
+            "structures:uri": "j:CriminalInformationIndicator",
+            "xsi:nil": true
+          },
+          "MinOccursQuantity": 0,
+          "MaxOccursQuantity": "unbounded"
+        }
+      },
+      {
+        "structures:uri": "j:PersonChargeAssociationType",
+        "Name": "PersonChargeAssociationType",
+        "Namespace": {
+          "structures:uri": "j",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A data type for an association between a person and a charge.",
+        "ExtensionOfClass": {
+          "structures:uri": "nc:AssociationType",
+          "xsi:nil": true
+        },
+        "HasProperty": [
+          {
+            "structures:sequenceID": 1,
+            "Property": {
+              "structures:uri": "nc:Person",
+              "xsi:nil": true
+            },
+            "MinOccursQuantity": 0,
+            "MaxOccursQuantity": "unbounded"
+          },
+          {
+            "structures:sequenceID": 2,
+            "Property": {
+              "structures:uri": "j:Charge",
+              "xsi:nil": true
+            },
+            "MinOccursQuantity": 0,
+            "MaxOccursQuantity": "unbounded"
+          },
+          {
+            "structures:sequenceID": 3,
+            "Property": {
+              "structures:uri": "j:JuvenileAsAdultIndicator",
+              "xsi:nil": true
+            },
+            "MinOccursQuantity": 0,
+            "MaxOccursQuantity": "unbounded"
+          },
+          {
+            "structures:sequenceID": 4,
+            "Property": {
+              "structures:uri": "j:PersonChargeAssociationAugmentationPoint",
+              "xsi:nil": true
+            },
+            "MinOccursQuantity": 0,
+            "MaxOccursQuantity": "unbounded"
+          }
+        ]
+      },
+      {
+        "structures:uri": "nc:ActivityType",
+        "Name": "ActivityType",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A data type for a single or set of related actions, events, or process steps.",
+        "HasProperty": [
+          {
+            "structures:sequenceID": 1,
+            "Property": {
+              "structures:uri": "nc:ActivityDate",
+              "xsi:nil": true
+            },
+            "MinOccursQuantity": 0,
+            "MaxOccursQuantity": "unbounded"
+          },
+          {
+            "structures:sequenceID": 2,
+            "Property": {
+              "structures:uri": "nc:ActivityLocation",
+              "xsi:nil": true
+            },
+            "MinOccursQuantity": 0,
+            "MaxOccursQuantity": "unbounded"
+          }
+        ]
+      },
+      {
+        "structures:uri": "nc:AssociationType",
+        "Name": "AssociationType",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A data type for an association, connection, relationship, or involvement somehow linking people, things, and/or activities together."
+      },
+      {
+        "structures:uri": "nc:DateType",
+        "Name": "DateType",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A data type for a calendar date.",
+        "HasProperty": {
+          "structures:sequenceID": 1,
+          "Property": {
+            "structures:uri": "nc:DateRepresentation",
+            "xsi:nil": true
+          },
+          "MinOccursQuantity": 1,
+          "MaxOccursQuantity": 1
+        }
+      },
+      {
+        "structures:uri": "nc:IdentificationType",
+        "Name": "IdentificationType",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A data type for a representation of an identity.",
+        "HasProperty": {
+          "structures:sequenceID": 1,
+          "Property": {
+            "structures:uri": "nc:IdentificationID",
+            "xsi:nil": true
+          },
+          "MinOccursQuantity": 0,
+          "MaxOccursQuantity": "unbounded"
+        }
+      },
+      {
+        "structures:uri": "nc:IncidentType",
+        "Name": "IncidentType",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A data type for an occurrence or an event that may require a response.",
+        "ExtensionOfClass": {
+          "structures:uri": "nc:ActivityType",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "nc:InjuryType",
+        "Name": "InjuryType",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A data type for a form of harm or damage sustained by a person.",
+        "HasProperty": [
+          {
+            "structures:sequenceID": 1,
+            "Property": {
+              "structures:uri": "nc:InjuryDescriptionText",
+              "xsi:nil": true
+            },
+            "MinOccursQuantity": 0,
+            "MaxOccursQuantity": "unbounded"
+          },
+          {
+            "structures:sequenceID": 2,
+            "Property": {
+              "structures:uri": "nc:InjurySeverityAbstract",
+              "xsi:nil": true
+            },
+            "MinOccursQuantity": 0,
+            "MaxOccursQuantity": "unbounded"
+          }
+        ]
+      },
+      {
+        "structures:uri": "nc:LatitudeCoordinateType",
+        "Name": "LatitudeCoordinateType",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A data type for a measurement of the angular distance between a point on the Earth and the Equator.",
+        "HasProperty": {
+          "structures:sequenceID": 1,
+          "Property": {
+            "structures:uri": "nc:LatitudeDegreeValue",
+            "xsi:nil": true
+          },
+          "MinOccursQuantity": 0,
+          "MaxOccursQuantity": "unbounded"
+        }
+      },
+      {
+        "structures:uri": "nc:LengthMeasureType",
+        "Name": "LengthMeasureType",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A data type for a measure of a distance or extent.",
+        "ExtensionOfClass": {
+          "structures:uri": "nc:MeasureType",
+          "xsi:nil": true
+        },
+        "HasProperty": {
+          "structures:sequenceID": 1,
+          "Property": {
+            "structures:uri": "nc:LengthUnitAbstract",
+            "xsi:nil": true
+          },
+          "MinOccursQuantity": 0,
+          "MaxOccursQuantity": "unbounded"
+        }
+      },
+      {
+        "structures:uri": "nc:Location2DGeospatialCoordinateType",
+        "Name": "Location2DGeospatialCoordinateType",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A data type for a location identified by latitude and longitude.",
+        "HasProperty": [
+          {
+            "structures:sequenceID": 1,
+            "Property": {
+              "structures:uri": "nc:GeographicCoordinateLatitude",
+              "xsi:nil": true
+            },
+            "MinOccursQuantity": 1,
+            "MaxOccursQuantity": 1
+          },
+          {
+            "structures:sequenceID": 2,
+            "Property": {
+              "structures:uri": "nc:GeographicCoordinateLongitude",
+              "xsi:nil": true
+            },
+            "MinOccursQuantity": 1,
+            "MaxOccursQuantity": 1
+          }
+        ]
+      },
+      {
+        "structures:uri": "nc:LocationType",
+        "Name": "LocationType",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A data type for geospatial location.",
+        "HasProperty": {
+          "structures:sequenceID": 1,
+          "Property": {
+            "structures:uri": "nc:LocationGeospatialCoordinateAbstract",
+            "xsi:nil": true
+          },
+          "MinOccursQuantity": 0,
+          "MaxOccursQuantity": "unbounded"
+        }
+      },
+      {
+        "structures:uri": "nc:LongitudeCoordinateType",
+        "Name": "LongitudeCoordinateType",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A data type for a measurement of the angular distance between a point on the Earth and the Prime Meridian.",
+        "HasProperty": {
+          "structures:sequenceID": 1,
+          "Property": {
+            "structures:uri": "nc:LongitudeDegreeValue",
+            "xsi:nil": true
+          },
+          "MinOccursQuantity": 0,
+          "MaxOccursQuantity": "unbounded"
+        }
+      },
+      {
+        "structures:uri": "nc:MeasureType",
+        "Name": "MeasureType",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A data type for a measurement.",
+        "HasProperty": {
+          "structures:sequenceID": 1,
+          "Property": {
+            "structures:uri": "nc:MeasureValueAbstract",
+            "xsi:nil": true
+          },
+          "MinOccursQuantity": 0,
+          "MaxOccursQuantity": "unbounded"
+        }
+      },
+      {
+        "structures:uri": "nc:MetadataType",
+        "Name": "MetadataType",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A data type for information that further qualifies primary data; data about data.",
+        "HasProperty": {
+          "structures:sequenceID": 1,
+          "Property": {
+            "structures:uri": "nc:ReportedDate",
+            "xsi:nil": true
+          },
+          "MinOccursQuantity": 0,
+          "MaxOccursQuantity": "unbounded"
+        }
+      },
+      {
+        "structures:uri": "nc:PersonAssociationType",
+        "Name": "PersonAssociationType",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A data type for an association between people.",
+        "ExtensionOfClass": {
+          "structures:uri": "nc:AssociationType",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "nc:PersonNameType",
+        "Name": "PersonNameType",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A data type for a combination of names and/or titles by which a person is known.",
+        "HasProperty": [
+          {
+            "structures:sequenceID": 1,
+            "Property": {
+              "structures:uri": "nc:PersonGivenName",
+              "xsi:nil": true
+            },
+            "MinOccursQuantity": 0,
+            "MaxOccursQuantity": "unbounded"
+          },
+          {
+            "structures:sequenceID": 2,
+            "Property": {
+              "structures:uri": "nc:PersonMiddleName",
+              "xsi:nil": true
+            },
+            "MinOccursQuantity": 0,
+            "MaxOccursQuantity": "unbounded"
+          },
+          {
+            "structures:sequenceID": 3,
+            "Property": {
+              "structures:uri": "nc:PersonSurName",
+              "xsi:nil": true
+            },
+            "MinOccursQuantity": 0,
+            "MaxOccursQuantity": "unbounded"
+          },
+          {
+            "Property": {
+              "structures:uri": "nc:personNameCommentText",
+              "xsi:nil": true
+            },
+            "MinOccursQuantity": 0,
+            "MaxOccursQuantity": 1
+          }
+        ]
+      },
+      {
+        "structures:uri": "nc:PersonType",
+        "Name": "PersonType",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A data type for a human being.",
+        "HasProperty": [
+          {
+            "structures:sequenceID": 1,
+            "Property": {
+              "structures:uri": "nc:PersonBirthDate",
+              "xsi:nil": true
+            },
+            "MinOccursQuantity": 0,
+            "MaxOccursQuantity": "unbounded"
+          },
+          {
+            "structures:sequenceID": 2,
+            "Property": {
+              "structures:uri": "nc:PersonName",
+              "xsi:nil": true
+            },
+            "MinOccursQuantity": 0,
+            "MaxOccursQuantity": "unbounded"
+          },
+          {
+            "structures:sequenceID": 3,
+            "Property": {
+              "structures:uri": "nc:PersonAugmentationPoint",
+              "xsi:nil": true
+            },
+            "MinOccursQuantity": 0,
+            "MaxOccursQuantity": "unbounded"
+          }
+        ]
+      },
+      {
+        "structures:uri": "nc:PersonUnionAssociationType",
+        "Name": "PersonUnionAssociationType",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A data type for an association between two persons who are in a state of union with each other.",
+        "ExtensionOfClass": {
+          "structures:uri": "nc:PersonAssociationType",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "priv:PrivacyMetadataType",
+        "Name": "PrivacyMetadataType",
+        "Namespace": {
+          "structures:uri": "priv",
+          "xsi:nil": true
+        },
+        "HasProperty": {
+          "structures:sequenceID": 1,
+          "Property": {
+            "structures:uri": "priv:PrivacyCode",
+            "xsi:nil": true
+          },
+          "MinOccursQuantity": 0,
+          "MaxOccursQuantity": "unbounded"
+        }
+      }
+    ],
+    "Datatype": [
+      {
+        "structures:uri": "aamva_d20:AccidentSeverityCodeType",
+        "Name": "AccidentSeverityCodeType",
+        "Namespace": {
+          "structures:uri": "aamva_d20",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A data type for severity levels of an accident.",
+        "RestrictionOf": {
+          "Datatype": {
+            "structures:uri": "xs:token",
+            "xsi:nil": true
+          },
+          "Enumeration": [
+            {
+              "StringValue": 1,
+              "DefinitionText": "Fatal Accident"
+            },
+            {
+              "StringValue": 2,
+              "DefinitionText": "Incapacitating Injury Accident"
+            },
+            {
+              "StringValue": 3,
+              "DefinitionText": "Non-incapacitating Evident Injury"
+            },
+            {
+              "StringValue": 4,
+              "DefinitionText": "Possible Injury Accident"
+            },
+            {
+              "StringValue": 5,
+              "DefinitionText": "Non-injury Accident"
+            },
+            {
+              "StringValue": 9,
+              "DefinitionText": "Unknown"
+            }
+          ]
+        }
+      },
+      {
+        "structures:uri": "hs:PersonOtherKinAssociationCodeType",
+        "Name": "PersonOtherKinAssociationCodeType",
+        "Namespace": {
+          "structures:uri": "hs",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A data type for describing the nature of the kinship or other close personal relationship from a source person to a target person",
+        "RestrictionOf": {
+          "Datatype": {
+            "structures:uri": "xs:token",
+            "xsi:nil": true
+          },
+          "Enumeration": [
+            {
+              "StringValue": "Authority Figure",
+              "DefinitionText": "Authority Figure"
+            },
+            {
+              "StringValue": "Babysitter",
+              "DefinitionText": "Babysitter"
+            },
+            {
+              "StringValue": "Brother",
+              "DefinitionText": "Brother"
+            },
+            {
+              "StringValue": "Brother-In-Law",
+              "DefinitionText": "Brother-In-Law"
+            },
+            {
+              "StringValue": "Clergy",
+              "DefinitionText": "Clergy"
+            },
+            {
+              "StringValue": "Coach",
+              "DefinitionText": "Coach"
+            },
+            {
+              "StringValue": "Domestic Partner",
+              "DefinitionText": "Domestic Partner"
+            },
+            {
+              "StringValue": "Father-in-Law",
+              "DefinitionText": "Father-in-Law"
+            },
+            {
+              "StringValue": "Fiance",
+              "DefinitionText": "Fiance"
+            },
+            {
+              "StringValue": "Fiancee",
+              "DefinitionText": "Fiancee"
+            },
+            {
+              "StringValue": "Fictive Kin",
+              "DefinitionText": "Fictive Kin"
+            },
+            {
+              "StringValue": "Godfather",
+              "DefinitionText": "Godfather"
+            },
+            {
+              "StringValue": "Godmother",
+              "DefinitionText": "Godmother"
+            },
+            {
+              "StringValue": "Granddaughter",
+              "DefinitionText": "Granddaughter"
+            },
+            {
+              "StringValue": "Grandson",
+              "DefinitionText": "Grandson"
+            },
+            {
+              "StringValue": "Great-Granddaughter",
+              "DefinitionText": "Great-Granddaughter"
+            },
+            {
+              "StringValue": "Great-Grandson",
+              "DefinitionText": "Great-Grandson"
+            },
+            {
+              "StringValue": "Maternal Aunt",
+              "DefinitionText": "Maternal Aunt"
+            },
+            {
+              "StringValue": "Maternal Female Cousin",
+              "DefinitionText": "Maternal Female Cousin"
+            },
+            {
+              "StringValue": "Maternal Grandfather",
+              "DefinitionText": "Maternal Grandfather"
+            },
+            {
+              "StringValue": "Maternal Grandmother",
+              "DefinitionText": "Maternal Grandmother"
+            },
+            {
+              "StringValue": "Maternal Great Grandfather",
+              "DefinitionText": "Maternal Great Grandfather"
+            },
+            {
+              "StringValue": "Maternal Great Grandmother",
+              "DefinitionText": "Maternal Great Grandmother"
+            },
+            {
+              "StringValue": "Maternal Male Cousin",
+              "DefinitionText": "Maternal Male Cousin"
+            },
+            {
+              "StringValue": "Maternal Uncle",
+              "DefinitionText": "Maternal Uncle"
+            },
+            {
+              "StringValue": "Mother-in-Law",
+              "DefinitionText": "Mother-in-Law"
+            },
+            {
+              "StringValue": "Neighbor",
+              "DefinitionText": "Neighbor"
+            },
+            {
+              "StringValue": "Nephew",
+              "DefinitionText": "Nephew"
+            },
+            {
+              "StringValue": "Niece",
+              "DefinitionText": "Niece"
+            },
+            {
+              "StringValue": "Paternal Aunt",
+              "DefinitionText": "Paternal Aunt"
+            },
+            {
+              "StringValue": "Paternal Female Cousin",
+              "DefinitionText": "Paternal Female Cousin"
+            },
+            {
+              "StringValue": "Paternal Grandfather",
+              "DefinitionText": "Paternal Grandfather"
+            },
+            {
+              "StringValue": "Paternal Grandmother",
+              "DefinitionText": "Paternal Grandmother"
+            },
+            {
+              "StringValue": "Paternal Great Grandfather",
+              "DefinitionText": "Paternal Great Grandfather"
+            },
+            {
+              "StringValue": "Paternal Great Grandmother",
+              "DefinitionText": "Paternal Great Grandmother"
+            },
+            {
+              "StringValue": "Paternal Male Cousin",
+              "DefinitionText": "Paternal Male Cousin"
+            },
+            {
+              "StringValue": "Paternal Uncle",
+              "DefinitionText": "Paternal Uncle"
+            },
+            {
+              "StringValue": "Roommate",
+              "DefinitionText": "Roommate"
+            },
+            {
+              "StringValue": "Significant Other",
+              "DefinitionText": "Significant Other"
+            },
+            {
+              "StringValue": "Sister",
+              "DefinitionText": "Sister"
+            },
+            {
+              "StringValue": "Sister-In-Law",
+              "DefinitionText": "Sister-In-Law"
+            },
+            {
+              "StringValue": "Teacher",
+              "DefinitionText": "Teacher"
+            },
+            {
+              "StringValue": "Unrelated Friend",
+              "DefinitionText": "Unrelated Friend"
+            }
+          ]
+        }
+      },
+      {
+        "structures:uri": "nc:AngularMinuteType",
+        "Name": "AngularMinuteType",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A data type for a minute of a degree, with a restricted range of 0 (inclusive) to 60 (exclusive).",
+        "RestrictionOf": {
+          "Datatype": {
+            "structures:uri": "xs:decimal",
+            "xsi:nil": true
+          },
+          "WhiteSpace": {"WhiteSpaceValueCode": "collapse"},
+          "MaxExclusive": {
+            "StringValue": 60,
+            "DefinitionText": "The highest value allowed (exclusive)."
+          },
+          "MinInclusive": {
+            "StringValue": 0,
+            "DefinitionText": "The lowest value allowed (inclusive)."
+          }
+        }
+      },
+      {
+        "structures:uri": "nc:AngularSecondType",
+        "Name": "AngularSecondType",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A data type for a second of a minute, with a restricted range of 0 (inclusive) to 60 (exclusive).",
+        "RestrictionOf": {
+          "Datatype": {
+            "structures:uri": "xs:decimal",
+            "xsi:nil": true
+          },
+          "WhiteSpace": {"WhiteSpaceValueCode": "collapse"},
+          "MaxExclusive": {
+            "StringValue": 60,
+            "DefinitionText": "The maximum value for an angular second."
+          },
+          "MinInclusive": {
+            "StringValue": 0,
+            "DefinitionText": "The minimum value for an angular second."
+          }
+        }
+      },
+      {
+        "structures:uri": "nc:LatitudeDegreeType",
+        "Name": "LatitudeDegreeType",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A data type for a degree of latitude.",
+        "RestrictionOf": {
+          "Datatype": {
+            "structures:uri": "xs:decimal",
+            "xsi:nil": true
+          },
+          "WhiteSpace": {"WhiteSpaceValueCode": "collapse"},
+          "MaxInclusive": {
+            "StringValue": 90,
+            "DefinitionText": "The maximum value for a latitude degree."
+          },
+          "MinInclusive": {
+            "StringValue": -90,
+            "DefinitionText": "The minimum value for a latitude degree."
+          }
+        }
+      },
+      {
+        "structures:uri": "nc:LongitudeDegreeType",
+        "Name": "LongitudeDegreeType",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A data type for a degree of longitude.",
+        "RestrictionOf": {
+          "Datatype": {
+            "structures:uri": "xs:decimal",
+            "xsi:nil": true
+          },
+          "WhiteSpace": {"WhiteSpaceValueCode": "collapse"},
+          "MaxInclusive": {
+            "StringValue": 180,
+            "DefinitionText": "The maximum value for a longitude degree."
+          },
+          "MinInclusive": {
+            "StringValue": -180,
+            "DefinitionText": "The minimum value for a longitude degree."
+          }
+        }
+      },
+      {
+        "structures:uri": "nc:PersonNameTextType",
+        "Name": "PersonNameTextType",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A data type for a name by which a person is known, referred, or addressed.",
+        "RestrictionOf": {
+          "Datatype": {
+            "structures:uri": "nc:ProperNameTextType",
+            "xsi:nil": true
+          }
+        }
+      },
+      {
+        "structures:uri": "nc:ProperNameTextType",
+        "Name": "ProperNameTextType",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A data type for a word or phrase by which a person or thing is known, referred, or addressed.",
+        "RestrictionOf": {
+          "Datatype": {
+            "structures:uri": "nc:TextType",
+            "xsi:nil": true
+          }
+        }
+      },
+      {
+        "structures:uri": "nc:TextType",
+        "Name": "TextType",
+        "Namespace": {
+          "structures:uri": "nc",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A data type for a character string.",
+        "RestrictionOf": {
+          "Datatype": {
+            "structures:uri": "xs:string",
+            "xsi:nil": true
+          }
+        }
+      },
+      {
+        "structures:uri": "priv:PrivacyCodeType",
+        "Name": "PrivacyCodeType",
+        "Namespace": {
+          "structures:uri": "priv",
+          "xsi:nil": true
+        },
+        "RestrictionOf": {
+          "Datatype": {
+            "structures:uri": "xs:token",
+            "xsi:nil": true
+          },
+          "Enumeration": [
+            {"StringValue": "PII"},
+            {"StringValue": "MEDICAL"}
+          ]
+        }
+      },
+      {
+        "structures:uri": "unece:LengthCodeType",
+        "Name": "LengthCodeType",
+        "Namespace": {
+          "structures:uri": "unece",
+          "xsi:nil": true
+        },
+        "DefinitionText": "A data type for units of measurements for a length value.",
+        "RestrictionOf": {
+          "Datatype": {
+            "structures:uri": "xs:token",
+            "xsi:nil": true
+          },
+          "Enumeration": [
+            {
+              "StringValue": "4H",
+              "DefinitionText": "micrometre (micron)"
+            },
+            {
+              "StringValue": 77,
+              "DefinitionText": "milli-inch"
+            },
+            {
+              "StringValue": "A11",
+              "DefinitionText": "angstrom"
+            },
+            {
+              "StringValue": "A12",
+              "DefinitionText": "astronomical unit"
+            },
+            {
+              "StringValue": "A45",
+              "DefinitionText": "decametre"
+            },
+            {
+              "StringValue": "A71",
+              "DefinitionText": "femtometre"
+            },
+            {
+              "StringValue": "AK",
+              "DefinitionText": "fathom"
+            },
+            {
+              "StringValue": "AWG",
+              "DefinitionText": "american wire gauge"
+            },
+            {
+              "StringValue": "B57",
+              "DefinitionText": "light year"
+            },
+            {
+              "StringValue": "C45",
+              "DefinitionText": "nanometre"
+            },
+            {
+              "StringValue": "C52",
+              "DefinitionText": "picometre"
+            },
+            {
+              "StringValue": "C63",
+              "DefinitionText": "parsec"
+            },
+            {
+              "StringValue": "CMT",
+              "DefinitionText": "centimetre"
+            },
+            {
+              "StringValue": "DMT",
+              "DefinitionText": "decimetre"
+            },
+            {
+              "StringValue": "F49",
+              "DefinitionText": "rod [unit of distance]"
+            },
+            {
+              "StringValue": "F50",
+              "DefinitionText": "micrometre per kelvin"
+            },
+            {
+              "StringValue": "F51",
+              "DefinitionText": "centimetre per kelvin"
+            },
+            {
+              "StringValue": "F52",
+              "DefinitionText": "metre per kelvin"
+            },
+            {
+              "StringValue": "FOT",
+              "DefinitionText": "foot"
+            },
+            {
+              "StringValue": "G04",
+              "DefinitionText": "centimetre per bar"
+            },
+            {
+              "StringValue": "G05",
+              "DefinitionText": "metre per bar"
+            },
+            {
+              "StringValue": "G06",
+              "DefinitionText": "millimetre per bar"
+            },
+            {
+              "StringValue": "H79",
+              "DefinitionText": "French gauge"
+            },
+            {
+              "StringValue": "H84",
+              "DefinitionText": "gram millimetre"
+            },
+            {
+              "StringValue": "HMT",
+              "DefinitionText": "hectometre"
+            },
+            {
+              "StringValue": "INH",
+              "DefinitionText": "inch"
+            },
+            {
+              "StringValue": "K13",
+              "DefinitionText": "foot per degree Fahrenheit"
+            },
+            {
+              "StringValue": "K17",
+              "DefinitionText": "foot per psi"
+            },
+            {
+              "StringValue": "K45",
+              "DefinitionText": "inch per degree Fahrenheit"
+            },
+            {
+              "StringValue": "K46",
+              "DefinitionText": "inch per psi"
+            },
+            {
+              "StringValue": "KMT",
+              "DefinitionText": "kilometre"
+            },
+            {
+              "StringValue": "KTM",
+              "DefinitionText": "kilometre"
+            },
+            {
+              "StringValue": "L98",
+              "DefinitionText": "yard per degree Fahrenheit"
+            },
+            {
+              "StringValue": "L99",
+              "DefinitionText": "yard per psi"
+            },
+            {
+              "StringValue": "M49",
+              "DefinitionText": "chain (based on U.S. survey foot)"
+            },
+            {
+              "StringValue": "M50",
+              "DefinitionText": "furlong"
+            },
+            {
+              "StringValue": "M51",
+              "DefinitionText": "foot (U.S. survey)"
+            },
+            {
+              "StringValue": "M52",
+              "DefinitionText": "mile (based on U.S. survey foot)"
+            },
+            {
+              "StringValue": "M53",
+              "DefinitionText": "metre per pascal"
+            },
+            {
+              "StringValue": "M7",
+              "DefinitionText": "micro-inch"
+            },
+            {
+              "StringValue": "MAM",
+              "DefinitionText": "megametre"
+            },
+            {
+              "StringValue": "MMT",
+              "DefinitionText": "millimetre"
+            },
+            {
+              "StringValue": "MTR",
+              "DefinitionText": "metre"
+            },
+            {
+              "StringValue": "NMI",
+              "DefinitionText": "nautical mile"
+            },
+            {
+              "StringValue": "SMI",
+              "DefinitionText": "mile (statute mile)"
+            },
+            {
+              "StringValue": "X1",
+              "DefinitionText": "Gunter's chain"
+            },
+            {
+              "StringValue": "YRD",
+              "DefinitionText": "yard"
+            }
+          ]
+        }
+      },
+      {
+        "structures:uri": "xs:boolean",
+        "Name": "boolean",
+        "Namespace": {
+          "structures:uri": "xs",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "xs:date",
+        "Name": "date",
+        "Namespace": {
+          "structures:uri": "xs",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "xs:decimal",
+        "Name": "decimal",
+        "Namespace": {
+          "structures:uri": "xs",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "xs:string",
+        "Name": "string",
+        "Namespace": {
+          "structures:uri": "xs",
+          "xsi:nil": true
+        }
+      },
+      {
+        "structures:uri": "xs:token",
+        "Name": "token",
+        "Namespace": {
+          "structures:uri": "xs",
+          "xsi:nil": true
+        }
+      }
+    ]
+  }
+}

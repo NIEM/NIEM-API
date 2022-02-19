@@ -1,0 +1,682 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "http://reference.niem.gov/specification/cmf/0.4/#",
+  "properties": {
+    "Model": {
+      "type": "object",
+      "$ref": "#/definitions/ModelType"
+    }
+  },
+  "definitions": {
+    "boolean": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Value": {"type": "boolean"},
+        "id": {"type": "string"},
+        "ref": {"type": "string"},
+        "uri": {
+          "type": "string",
+          "format": "uri"
+        },
+        "sequenceID": {"type": "integer"}
+      }
+    },
+    "ObjectType": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {"type": "string"},
+        "ref": {"type": "string"},
+        "uri": {
+          "type": "string",
+          "format": "uri"
+        },
+        "sequenceID": {"type": "integer"}
+      }
+    },
+    "nonNegativeInteger": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Value": {"type": "integer"},
+        "id": {"type": "string"},
+        "ref": {"type": "string"},
+        "uri": {
+          "type": "string",
+          "format": "uri"
+        },
+        "sequenceID": {"type": "integer"}
+      }
+    },
+    "string": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Value": {"type": "string"},
+        "id": {"type": "string"},
+        "ref": {"type": "string"},
+        "uri": {
+          "type": "string",
+          "format": "uri"
+        },
+        "sequenceID": {"type": "integer"}
+      }
+    },
+    "NonNegativeValueFacetType": {
+      "required": ["NonNegativeValue"],
+      "allOf": [
+        {"$ref": "#/definitions/ObjectType"},
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "NonNegativeValue": {"$ref": "#/definitions/nonNegativeInteger"},
+            "DefinitionText": {"$ref": "#/definitions/string"},
+            "NonNegativeValueFacetAugmentationPoint": {
+              "type": "array",
+              "additionalItems": false,
+              "items": {
+                "type": [
+                  "string",
+                  "number",
+                  "integer",
+                  "boolean",
+                  "null",
+                  "object",
+                  "array"
+                ]
+              },
+              "minItems": 0
+            }
+          }
+        }
+      ]
+    },
+    "NCName": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Value": {"type": "string"},
+        "id": {"type": "string"},
+        "ref": {"type": "string"},
+        "uri": {
+          "type": "string",
+          "format": "uri"
+        },
+        "sequenceID": {"type": "integer"}
+      }
+    },
+    "anyURI": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Value": {
+          "type": "string",
+          "format": "uri"
+        },
+        "id": {"type": "string"},
+        "ref": {"type": "string"},
+        "uri": {
+          "type": "string",
+          "format": "uri"
+        },
+        "sequenceID": {"type": "integer"}
+      }
+    },
+    "token": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Value": {"type": "string"},
+        "id": {"type": "string"},
+        "ref": {"type": "string"},
+        "uri": {
+          "type": "string",
+          "format": "uri"
+        },
+        "sequenceID": {"type": "integer"}
+      }
+    },
+    "NamespaceKindCodeType": {
+      "allOf": [
+        {"$ref": "#/definitions/token"},
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {}
+        }
+      ]
+    },
+    "NamespaceType": {
+      "required": [
+        "NamespaceURI",
+        "NamespacePrefixName"
+      ],
+      "allOf": [
+        {"$ref": "#/definitions/ObjectType"},
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "NamespaceURI": {"$ref": "#/definitions/anyURI"},
+            "NamespacePrefixName": {"$ref": "#/definitions/NCName"},
+            "DefinitionText": {"$ref": "#/definitions/string"},
+            "NamespaceKindCode": {"$ref": "#/definitions/NamespaceKindCodeType"},
+            "NamespaceAugmentationPoint": {
+              "type": "array",
+              "additionalItems": false,
+              "items": {
+                "type": [
+                  "string",
+                  "number",
+                  "integer",
+                  "boolean",
+                  "null",
+                  "object",
+                  "array"
+                ]
+              },
+              "minItems": 0
+            }
+          }
+        }
+      ]
+    },
+    "ComponentType": {
+      "required": [
+        "Name",
+        "Namespace"
+      ],
+      "allOf": [
+        {"$ref": "#/definitions/ObjectType"},
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "Name": {"$ref": "#/definitions/NCName"},
+            "Namespace": {"$ref": "#/definitions/NamespaceType"},
+            "DefinitionText": {"$ref": "#/definitions/string"},
+            "AbstractIndicator": {"$ref": "#/definitions/boolean"},
+            "DeprecatedIndicator": {"$ref": "#/definitions/boolean"},
+            "ComponentAugmentationPoint": {
+              "type": "array",
+              "additionalItems": false,
+              "items": {
+                "type": [
+                  "string",
+                  "number",
+                  "integer",
+                  "boolean",
+                  "null",
+                  "object",
+                  "array"
+                ]
+              },
+              "minItems": 0
+            }
+          }
+        }
+      ]
+    },
+    "positiveInteger": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Value": {"type": "integer"},
+        "id": {"type": "string"},
+        "ref": {"type": "string"},
+        "uri": {
+          "type": "string",
+          "format": "uri"
+        },
+        "sequenceID": {"type": "integer"}
+      }
+    },
+    "AnyValueFacetType": {
+      "required": ["AnyValueAbstract"],
+      "allOf": [
+        {"$ref": "#/definitions/ObjectType"},
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "AnyValueAbstract": {
+              "type": "object",
+              "additionalProperties": false
+            },
+            "DefinitionText": {"$ref": "#/definitions/string"},
+            "AnyValueFacetAugmentationPoint": {
+              "type": "array",
+              "additionalItems": false,
+              "items": {
+                "type": [
+                  "string",
+                  "number",
+                  "integer",
+                  "boolean",
+                  "null",
+                  "object",
+                  "array"
+                ]
+              },
+              "minItems": 0
+            }
+          }
+        }
+      ]
+    },
+    "PatternFacetType": {
+      "required": ["StringValue"],
+      "allOf": [
+        {"$ref": "#/definitions/ObjectType"},
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "StringValue": {"$ref": "#/definitions/string"},
+            "DefinitionText": {"$ref": "#/definitions/string"},
+            "PatternFacetAugmentationPoint": {
+              "type": "array",
+              "additionalItems": false,
+              "items": {
+                "type": [
+                  "string",
+                  "number",
+                  "integer",
+                  "boolean",
+                  "null",
+                  "object",
+                  "array"
+                ]
+              },
+              "minItems": 0
+            }
+          }
+        }
+      ]
+    },
+    "WhiteSpaceValueCodeType": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Value": {"$ref": "#/definitions/WhiteSpaceFacetCodeSimpleType"},
+        "id": {"type": "string"},
+        "ref": {"type": "string"},
+        "uri": {
+          "type": "string",
+          "format": "uri"
+        },
+        "sequenceID": {"type": "integer"}
+      }
+    },
+    "WhiteSpaceFacetType": {
+      "required": ["WhiteSpaceValueCode"],
+      "allOf": [
+        {"$ref": "#/definitions/ObjectType"},
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "WhiteSpaceValueCode": {"$ref": "#/definitions/WhiteSpaceValueCodeType"},
+            "DefinitionText": {"$ref": "#/definitions/string"},
+            "WhiteSpaceFacetAugmentationPoint": {
+              "type": "array",
+              "additionalItems": false,
+              "items": {
+                "type": [
+                  "string",
+                  "number",
+                  "integer",
+                  "boolean",
+                  "null",
+                  "object",
+                  "array"
+                ]
+              },
+              "minItems": 0
+            }
+          }
+        }
+      ]
+    },
+    "PositiveValueFacetType": {
+      "required": ["PositiveValue"],
+      "allOf": [
+        {"$ref": "#/definitions/ObjectType"},
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "PositiveValue": {"$ref": "#/definitions/positiveInteger"},
+            "DefinitionText": {"$ref": "#/definitions/string"},
+            "PositiveValueFacetAugmentationPoint": {
+              "type": "array",
+              "additionalItems": false,
+              "items": {
+                "type": [
+                  "string",
+                  "number",
+                  "integer",
+                  "boolean",
+                  "null",
+                  "object",
+                  "array"
+                ]
+              },
+              "minItems": 0
+            }
+          }
+        }
+      ]
+    },
+    "RestrictionOfType": {
+      "required": ["Datatype"],
+      "allOf": [
+        {"$ref": "#/definitions/ObjectType"},
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "Datatype": {"$ref": "#/definitions/DatatypeType"},
+            "FacetAbstract": {
+              "type": "array",
+              "additionalItems": false,
+              "items": {
+                "type": "object",
+                "properties": {
+                  "FacetAbstract": {
+                    "type": [
+                      "string",
+                      "number",
+                      "integer",
+                      "boolean",
+                      "null",
+                      "object",
+                      "array"
+                    ]
+                  }
+                }
+              },
+              "minItems": 0
+            },
+            "RestrictionOfAugmentationPoint": {
+              "type": "array",
+              "additionalItems": false,
+              "items": {
+                "type": [
+                  "string",
+                  "number",
+                  "integer",
+                  "boolean",
+                  "null",
+                  "object",
+                  "array"
+                ]
+              },
+              "minItems": 0
+            }
+          }
+        }
+      ]
+    },
+    "UnionOfType": {
+      "required": ["Datatype"],
+      "allOf": [
+        {"$ref": "#/definitions/ObjectType"},
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "Datatype": {
+              "type": "array",
+              "additionalItems": false,
+              "items": {"$ref": "#/definitions/DatatypeType"},
+              "minItems": 1
+            },
+            "UnionOfAugmentationPoint": {
+              "type": "array",
+              "additionalItems": false,
+              "items": {
+                "type": [
+                  "string",
+                  "number",
+                  "integer",
+                  "boolean",
+                  "null",
+                  "object",
+                  "array"
+                ]
+              },
+              "minItems": 0
+            }
+          }
+        }
+      ]
+    },
+    "DatatypeType": {
+      "allOf": [
+        {"$ref": "#/definitions/ComponentType"},
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "RestrictionOf": {"$ref": "#/definitions/RestrictionOfType"},
+            "UnionOf": {"$ref": "#/definitions/UnionOfType"},
+            "ListOf": {"$ref": "#/definitions/DatatypeType"},
+            "DatatypeAugmentationPoint": {
+              "type": "array",
+              "additionalItems": false,
+              "items": {
+                "type": [
+                  "string",
+                  "number",
+                  "integer",
+                  "boolean",
+                  "null",
+                  "object",
+                  "array"
+                ]
+              },
+              "minItems": 0
+            }
+          }
+        }
+      ]
+    },
+    "MaxOccursType": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Value": {"type": "string"},
+        "id": {"type": "string"},
+        "ref": {"type": "string"},
+        "uri": {
+          "type": "string",
+          "format": "uri"
+        },
+        "sequenceID": {"type": "integer"}
+      }
+    },
+    "HasPropertyType": {
+      "required": [
+        "Property",
+        "MinOccursQuantity",
+        "MaxOccursQuantity"
+      ],
+      "allOf": [
+        {"$ref": "#/definitions/ObjectType"},
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "Property": {"$ref": "#/definitions/PropertyType"},
+            "MinOccursQuantity": {"$ref": "#/definitions/nonNegativeInteger"},
+            "MaxOccursQuantity": {"$ref": "#/definitions/MaxOccursType"},
+            "AugmentationElementNamespace": {"$ref": "#/definitions/NamespaceType"},
+            "AugmentationTypeNamespace": {
+              "type": "array",
+              "additionalItems": false,
+              "items": {"$ref": "#/definitions/NamespaceType"},
+              "minItems": 0
+            },
+            "HasPropertyAugmentationPoint": {
+              "type": "array",
+              "additionalItems": false,
+              "items": {
+                "type": [
+                  "string",
+                  "number",
+                  "integer",
+                  "boolean",
+                  "null",
+                  "object",
+                  "array"
+                ]
+              },
+              "minItems": 0
+            }
+          }
+        }
+      ]
+    },
+    "ClassType": {
+      "allOf": [
+        {"$ref": "#/definitions/ComponentType"},
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "AugmentableIndicator": {"$ref": "#/definitions/boolean"},
+            "ExternalAdapterTypeIndicator": {"$ref": "#/definitions/boolean"},
+            "ExtensionOfClass": {"$ref": "#/definitions/ClassType"},
+            "HasValue": {"$ref": "#/definitions/DatatypeType"},
+            "HasProperty": {
+              "type": "array",
+              "additionalItems": false,
+              "items": {"$ref": "#/definitions/HasPropertyType"},
+              "minItems": 0
+            },
+            "ClassAugmentationPoint": {
+              "type": "array",
+              "additionalItems": false,
+              "items": {
+                "type": [
+                  "string",
+                  "number",
+                  "integer",
+                  "boolean",
+                  "null",
+                  "object",
+                  "array"
+                ]
+              },
+              "minItems": 0
+            }
+          }
+        }
+      ]
+    },
+    "PropertyType": {
+      "allOf": [
+        {"$ref": "#/definitions/ComponentType"},
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "SubPropertyOf": {"$ref": "#/definitions/PropertyType"},
+            "Clazz": {"$ref": "#/definitions/ClassType"},
+            "Datatype": {"$ref": "#/definitions/DatatypeType"},
+            "PropertyAugmentationPoint": {
+              "type": "array",
+              "additionalItems": false,
+              "items": {
+                "type": [
+                  "string",
+                  "number",
+                  "integer",
+                  "boolean",
+                  "null",
+                  "object",
+                  "array"
+                ]
+              },
+              "minItems": 0
+            }
+          }
+        }
+      ]
+    },
+    "ModelType": {
+      "allOf": [
+        {"$ref": "#/definitions/ObjectType"},
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "ModelItemAbstract": {
+              "type": "array",
+              "additionalItems": false,
+              "items": {
+                "type": "object",
+                "properties": {
+                  "ModelItemAbstract": {
+                    "type": [
+                      "string",
+                      "number",
+                      "integer",
+                      "boolean",
+                      "null",
+                      "object",
+                      "array"
+                    ]
+                  }
+                }
+              },
+              "minItems": 0
+            },
+            "ModelAugmentationPoint": {
+              "type": "array",
+              "additionalItems": false,
+              "items": {
+                "type": [
+                  "string",
+                  "number",
+                  "integer",
+                  "boolean",
+                  "null",
+                  "object",
+                  "array"
+                ]
+              },
+              "minItems": 0
+            }
+          }
+        }
+      ]
+    },
+    "WhiteSpaceFacetCodeSimpleType": {
+      "allOf": [
+        {"type": "string"},
+        {
+          "enum": [
+            "collapse",
+            "preserve",
+            "replace"
+          ]
+        }
+      ]
+    },
+    "MaxOccursUnboundedCodeSimpleType": {
+      "allOf": [
+        {"type": "string"},
+        {
+          "enum": ["unbounded"]
+        }
+      ]
+    }
+  },
+  "required": [
+    "Model"
+  ]
+}

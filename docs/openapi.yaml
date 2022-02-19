@@ -1,0 +1,130 @@
+
+openapi: 3.0.3
+
+info:
+  title: NIEM API
+  version: "2.0alpha01"
+
+servers:
+- url: https://tools.niem.gov/api/v2/
+
+tags:
+- name: transforms
+
+paths:
+
+  /transform-model:
+    post:
+      summary: Transform a representation of a model that describes NIEM data to a different NIEM model representation.
+      tags:
+      - transforms
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                from:
+                  type: string
+                  enum: [xsd, cmf]
+                  example: xsd
+                  description: The NIEM format of the given data to be transformed.
+
+                to:
+                  type: string
+                  enum: [xsd, cmf, owl]
+                  example: cmf
+                  description: The NIEM format to which the given data should be transformed.
+
+                version:
+                  type: string
+                  enum: ["3.0", "4.0", "5.0"]
+                  description: If applicable, the specific version of the NIEM format to which the given data should be transformed.  Defaults to the current version if not provided.
+
+                file:
+                  type: string
+                  format: binary
+                  description: A NIEM model as a text or zip file to be transformed into a different NIEM model representation.
+
+
+              required: [from, to, file]
+
+            encoding:
+              file:
+                contentType: application/xml, application/zip
+
+      responses:
+
+        "200":
+          description: OK
+          content:
+            application/xml:
+              schema:
+                allOf:
+                  - $ref: cmf/cmf.schema.json#/properties/Model
+                  - xml:
+                      name: Model
+                      wrapped: true
+                      prefix: cmf
+                      namespace: http://reference.niem.gov/specification/cmf/0.4/#
+              examples:
+                cmf:
+                  $ref: "#/components/examples/crash_driver_cmf_json"
+
+            application/zip:
+              schema:
+                type: string
+                format: binary
+
+components:
+
+  examples:
+    crash_driver_cmf_json:
+      value:
+        Model:
+          Namespace:
+            -
+              structures:uri: nc
+              NamespacePrefixName: nc
+              NamespaceURI: http://release.niem.gov/niem/niem-core/5.0/
+              DefinitionText: NIEM Core.
+          Property:
+            -
+              structures:ui: nc:ActivityDate
+              Name: ActivityDate
+              Namespace:
+                structures:uri: nc
+                xsi:nil: true
+              DefinitionText: A date of an activity.
+              Class:
+                structures:uri: nc:DateType
+                xsi:nil: true
+            -
+              structures: nc:DateRepresentation
+              Name: DateRepresentation
+              Namespace:
+                structures:uri: nc
+                xsi:nil: true
+              DefinitionText: A data concept for a representation of a date.
+              AbstractIndicator: true
+          Class:
+            -
+              structures:uri: nc:DateType
+              Name: DateType
+              Namespace:
+                structures:uri: nc
+                xsi:nil: true
+              DefinitionText: A data type for a calendar date.
+              HasProperty:
+                -
+                  Property:
+                    structures:uri: nc:DateRepresentation
+                    MinOccursQuantity: 1
+                    MaxOccursQuantity: 1
+          Datatype:
+            -
+              structures:uri: xs:string
+              Name: string
+              Namespace:
+                structures:uri: xs
+                xsi:nil: true
